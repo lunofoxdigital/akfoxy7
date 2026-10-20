@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AKFoxy7 | Home Brewing</title>
+    <title>AKFoxy7 | Home Brew</title>
     <meta name="description" content="AKFoxy7 - The brewery with no beer">
-    
-<link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" href="favicon.png">
 
-<style>
+    <style>
+        /* ==========================================
+           1. VARIABLES & RESET
+           ========================================== */
         :root {
             --bg-dark: #000000;
             --card-bg: rgba(22, 27, 34, 0.90);
@@ -26,51 +27,43 @@
             margin: 0;
             padding: 0;
         }
-/* custom font */
-@font-face {
-    font-family: 'PressStart2P';
-    src: url('fonts/PressStart2P-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
 
-/* Apply to the main hero title and header logo */
-h1, .brand-name {
-    font-family: 'PressStart2P', monospace, sans-serif;
-    display: block;
-    width: 100%;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-        /* 1. Cube Pattern applied to <html> */
-        html {
-          --s: 80px; /* Controls scale */
-          --c1: #000000;
-          --c2: #292929;
-          
-          --c: var(--c1) 0;
-          --g: conic-gradient(at 50% 25%, #0000 75%, var(--c));
-          background:
-            repeating-linear-gradient(#0000 0 48%, var(--c) 50%), var(--g),
-            conic-gradient(#0000 75%, var(--c)) calc(var(--s)/4) calc(var(--s)/2),
-            var(--g) calc(var(--s)/2) var(--s) var(--c2);
-          background-size: var(--s) var(--s), var(--s) calc(2*var(--s));
-          min-height: 100vh;
+        /* ==========================================
+           2. TYPOGRAPHY & FONTS
+           ========================================== */
+        @font-face {
+            font-family: 'PressStart2P';
+            src: url('fonts/PressStart2P-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
         }
 
-        /* 2. Must set body background to transparent so html pattern is visible */
-        body {
-            background-color: transparent;
-            margin: 0;
+        /* ==========================================
+           3. BACKGROUND PATTERN & BODY
+           ========================================== */
+        html {
+            --s: 80px;
+            --c1: #000000;
+            --c2: #292929;
+          
+            --c: var(--c1) 0;
+            --g: conic-gradient(at 50% 25%, #0000 75%, var(--c));
+            background:
+                repeating-linear-gradient(#0000 0 48%, var(--c) 50%), var(--g),
+                conic-gradient(#0000 75%, var(--c)) calc(var(--s)/4) calc(var(--s)/2),
+                var(--g) calc(var(--s)/2) var(--s) var(--c2);
+            background-size: var(--s) var(--s), var(--s) calc(2*var(--s));
             min-height: 100vh;
         }
-    
+
         body {
-    font-family: var(--font-stack);
-}
-    
+            background-color: transparent;
+            font-family: var(--font-stack);
+            color: var(--text-main);
+            min-height: 100vh;
+        }
+
         a {
             color: var(--text-main);
             text-decoration: none;
@@ -81,65 +74,57 @@ h1, .brand-name {
             color: var(--accent-color);
         }
 
-        /* Navigation Header */
+        /* ==========================================
+           4. HEADER & NAVIGATION
+           ========================================== */
         header {
             width: 100%;
             border-bottom: 1px solid var(--border-color);
-            background: color: #000000;
+            background-color: rgba(0, 0, 0, 0.8); /* Slightly transparent for blur */
             backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 100;
-            display: flex;
-    flex-direction: column;
-    align-items: center;     
-    text-align: center;
-    width: 100%;
-    padding: 1rem
         }
-<br>
+
         .nav-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;  /* Stacks elements vertically */
-    justify-content: center;
-    align-items: center;     /* Centers stacked items horizontally */
-    gap: 1rem;
-    text-align: center;
-}
-    
-.nav-container ul {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    padding: 0; /* Removes default browser left-padding offset */
-    margin: 0;
-    list-style: none;
-}
-    
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            text-align: center;
+        }
+
         .brand-logo {
             display: flex;
             flex-direction: column;
+            align-items: center;
+            width: 100%;
         }
 
         .brand-name {
+            font-family: 'PressStart2P', monospace, sans-serif;
             font-size: 2rem;
-            font-weight: 800;
-            letter-spacing: -0.03em;
+            font-weight: normal;
             color: var(--text-main);
+            margin: 0 0 0.25rem 0;
         }
-/*the brewery with no beer*/
+
         .brand-tagline {
             font-size: 0.8rem;
             color: var(--text-muted);
-            
         }
 
-        .nav-links {
+        .nav-container ul {
             display: flex;
-            gap: 1.75rem;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 0;
+            margin: 0;
             list-style: none;
         }
 
@@ -148,12 +133,13 @@ h1, .brand-name {
             font-weight: 500;
         }
 
-        /* Main Container */
+        /* ==========================================
+           5. MAIN LAYOUT & CARDS
+           ========================================== */
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 3rem 1.5rem;
-            flex: 1;
             display: flex;
             flex-direction: column;
             gap: 2rem;
@@ -167,6 +153,7 @@ h1, .brand-name {
             border-radius: 24px;
             padding: 3.5rem 2rem;
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            backdrop-filter: blur(8px);
         }
 
         .hero-img-placeholder {
@@ -188,29 +175,29 @@ h1, .brand-name {
             object-fit: cover;
         }
 
-        .hero h1 {
+        .hero h2 {
             font-size: clamp(2rem, 4vw, 2.75rem);
             font-weight: 800;
-            color: #ffffff
+            color: #ffffff;
             margin-bottom: 1rem;
             letter-spacing: -0.02em;
         }
 
         .hero-description {
             font-size: 1.1rem;
-            color: #8b949e;
+            color: var(--text-muted);
             max-width: 650px;
             margin: 0 auto 2rem auto;
+            line-height: 1.5;
         }
 
-        /* Social Links Grid */
+        /* Social Links */
         .social-section {
             margin-top: 2rem;
         }
 
         .social-title {
             font-size: 0.9rem;
-            
             letter-spacing: 0.08em;
             color: var(--text-muted);
             margin-bottom: 1.25rem;
@@ -246,6 +233,7 @@ h1, .brand-name {
             border-radius: 20px;
             padding: 2rem;
             text-align: center;
+            backdrop-filter: blur(8px);
         }
 
         .support-card h2 {
@@ -271,30 +259,7 @@ h1, .brand-name {
 
         .btn-primary:hover {
             background: var(--accent-hover);
-            color: #ffffff;
             transform: translateY(-2px);
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 2.5rem 2rem;
-        }
-
-        .contact-section h2 {
-            font-size: 1.6rem;
-            margin-bottom: 0.5rem;
-            text-align: center;
-        }
-
-        .contact-section p.sub {
-            text-align: center;
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-
         }
 
         /* Footer */
@@ -304,6 +269,7 @@ h1, .brand-name {
             text-align: center;
             color: var(--text-muted);
             font-size: 0.85rem;
+            background-color: #000000;
         }
 
         .footer-info {
@@ -313,10 +279,6 @@ h1, .brand-name {
 
         @media (max-width: 600px) {
             .nav-container {
-                flex-direction: column;
-                text-align: center;
-            }
-            .nav-links {
                 gap: 1.2rem;
             }
             .hero {
@@ -331,15 +293,13 @@ h1, .brand-name {
     <header>
         <div class="nav-container">
             <div class="brand-logo">
-                <span class="brand-name">AKFoxy7</span>
+                <h1 class="brand-name">AKFoxy7</h1>
                 <span class="brand-tagline">The brewery with no beer</span>
             </div>
             <nav>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
-                    
                     <li><a href="Our-Story.html">Our Story</a></li>
-                    
                 </ul>
             </nav>
         </div>
@@ -351,7 +311,6 @@ h1, .brand-name {
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-img-placeholder">
-                
                 <img src="logo.png" alt="Cat and Fox drinking beer mascot logo" onerror="this.style.display='none'; this.parentNode.innerText='🍺';">
             </div>
 
@@ -365,7 +324,6 @@ h1, .brand-name {
                 <p class="social-title">For up-to-date progress, check out our Instagram</p>
                 <div class="social-grid">
                     <a href="https://instagram.com/ak.foxy7" class="social-btn" target="_blank" rel="noopener">Instagram</a>
-                    
                 </div>
             </div>
         </section>
@@ -376,6 +334,7 @@ h1, .brand-name {
             <p>Help fund our brewing experiments and future projects.</p>
             <a href="https://www.paypal.com/qrcodes/managed/de10a822-5e4d-419f-9a81-8e4c3b01492c?utm_source=consweb_more" class="btn-primary">Click Here</a>
         </section>
+        
     </div>
 
     <!-- Footer -->
@@ -384,7 +343,7 @@ h1, .brand-name {
             <strong>AKFoxy7</strong><br>
             1 Garage, Somewhere Street, NE14 ABJ<br>
             <a href="mailto:alex@akfoxy7.com">alex@akfoxy7.com</a><br>
-<a href="mailto:luke@akfoxy7.com">luke@akfoxy7.com</a>
+            <a href="mailto:luke@akfoxy7.com">luke@akfoxy7.com</a>
         </div>
         <p>&copy; 2026 AKFoxy7. All rights reserved.</p>
     </footer>
