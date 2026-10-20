@@ -232,14 +232,24 @@ header {
         }
 
         .social-btn {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid var(--border-color);
-            padding: 0.65rem 1.25rem;
-            border-radius: 12px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.2s ease;
-        }
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem; /* Space between icon and text */
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border-color);
+    padding: 0.65rem 1.25rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.social-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor; /* Matches the text color automatically */
+}
 
         .social-btn:hover {
             background: rgba(255, 255, 255, 0.12);
