@@ -76,69 +76,84 @@
         }
 
         /* ==========================================
-           4. HEADER & NAVIGATION
-           ========================================== */
-        header {
-            width: 100%;
-            border-bottom: 1px solid var(--border-color);
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+   HEADER & NAVIGATION (IDENTICAL ACROSS ALL PAGES)
+   ========================================== */
+header {
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 0; /* Removes any top-level header padding */
+}
 
-        .nav-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 1rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-            text-align: center;
-        }
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.25rem 1rem; /* Fixed identical padding for all pages */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem; /* Equal spacing between logo block and nav links */
+    text-align: center;
+}
 
-        .brand-logo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-        }
+.brand-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
 
-        .brand-name {
-            font-family: 'PressStart2P', monospace, sans-serif;
-            font-size: 2rem;
-            font-weight: normal;
-            color: var(--text-main);
-            margin: 0 0 0.25rem 0;
-        }
+.brand-name {
+    font-family: 'PressStart2P', monospace, sans-serif;
+    font-size: 1.8rem;
+    font-weight: normal;
+    color: var(--text-main);
+    margin: 0 0 0.35rem 0;
+    text-decoration: none;
+    display: inline-block;
+    line-height: 1.2;
+}
 
-        .brand-tagline {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
+.brand-tagline {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1;
+}
 
-        .nav-container ul {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            padding: 0;
-            margin: 0;
-            list-style: none;
-        }
+.nav-container nav {
+    width: 100%;
+}
 
-        .nav-links a {
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
+.nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
 
-        .nav-links a.active {
-            color: var(--accent-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 2px;
-        }
+.nav-links a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent; /* Reserve 2px space so height never shifts */
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent-color);
+    border-bottom-color: var(--accent-color);
+}
 
         /* ==========================================
            5. MAIN CONTENT & STORY CARD
@@ -261,19 +276,19 @@
 
     <!-- Header Navigation -->
     <header>
-        <div class="nav-container">
-            <div class="brand-logo">
-                <a href="index.html" class="brand-name">AKFoxy7</a>
-                <span class="brand-tagline">The brewery with no beer</span>
-            </div>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="our-story.html" class="active">Our Story</a></li>
-                </ul>
-            </nav>
+    <div class="nav-container">
+        <div class="brand-logo">
+            <a href="index.html" class="brand-name">AKFoxy7</a>
+            <span class="brand-tagline">The brewery with no beer</span>
         </div>
-    </header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="our-story.html" class="active">Our Story</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
     <!-- Main Content Container -->
     <div class="container">
