@@ -49,10 +49,11 @@ h1, .brand-name {
         body {
     font-family: var(--font-stack);
     background-color: var(--bg-dark);
-    background-image: linear-gradient(
-        rgba(255, 255, 255, 0.04) 50%, 
-        transparent 50%
-    );
+    background:  
+    repeating-conic-gradient(var(--c1) 0 25%,#0000 0 50%)
+    0 0/calc(3*var(--s)) calc(2*var(--s)),
+    repeating-conic-gradient(var(--c2) 0 25%,var(--c1) 0 50%)
+    0 0/var(--s) var(--s);
     background-size: 100% 4px;
 }
     
