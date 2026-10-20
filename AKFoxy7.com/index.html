@@ -25,7 +25,21 @@
             margin: 0;
             padding: 0;
         }
+/* custom font */
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('fonts/MyCustomFont.woff2') format('woff2'),
+         url('fonts/MyCustomFont.ttf') format('truetype');
+    font-weight: 700; /* Adjust weight: 400 for normal, 700 for bold */
+    font-style: normal;
+    font-display: swap; /* Ensures text remains visible while font loads */
+}
 
+/* header / title */
+h1, .brand-name {
+    font-family: 'MyCustomFont', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+    
         body {
     font-family: var(--font-stack);
     background-color: var(--bg-dark);
