@@ -6,336 +6,25 @@
     <title>AKFoxy7 | Home Brew</title>
     <meta name="description" content="AKFoxy7 - The brewery with no beer">
     <link rel="icon" type="image/png" href="favicon.png">
-
-    <style>
-        /* ==========================================
-           1. VARIABLES & RESET
-           ========================================== */
-        :root {
-            --bg-dark: #000000;
-            --card-bg: rgba(22, 27, 34, 0.75);
-            --border-color: rgba(255, 255, 255, 0.12);
-            --text-main: #ffffff;
-            --text-muted: #8b949e;
-            --accent-color: #ff6b35;
-            --accent-hover: #e55a2b;
-            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* ==========================================
-           2. TYPOGRAPHY & FONTS
-           ========================================== */
-        @font-face {
-            font-family: 'PressStart2P';
-            src: url('fonts/PressStart2P-Regular.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        /* ==========================================
-           3. BACKGROUND PATTERN & BODY
-           ========================================== */
-        html {
-            --s: 80px;
-            --c1: #000000;
-            --c2: #292929;
-          
-            --c: var(--c1) 0;
-            --g: conic-gradient(at 50% 25%, #0000 75%, var(--c));
-            background:
-                repeating-linear-gradient(#0000 0 48%, var(--c) 50%), var(--g),
-                conic-gradient(#0000 75%, var(--c)) calc(var(--s)/4) calc(var(--s)/2),
-                var(--g) calc(var(--s)/2) var(--s) var(--c2);
-            background-size: var(--s) var(--s), var(--s) calc(2*var(--s));
-            min-height: 100vh;
-        }
-
-        body {
-            background-color: transparent;
-            font-family: var(--font-stack);
-            color: var(--text-main);
-            min-height: 100vh;
-        }
-
-        a {
-            color: var(--text-main);
-            text-decoration: none;
-            transition: color 0.2s ease, opacity 0.2s ease;
-        }
-
-        a:hover {
-            color: var(--accent-color);
-        }
-
-        /* ==========================================
-   HEADER & NAVIGATION (IDENTICAL ACROSS ALL PAGES)
-   ========================================== */
-header {
-    width: 100%;
-    border-bottom: 1px solid var(--border-color);
-    background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    padding: 0; /* Removes any top-level header padding */
-}
-
-.nav-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 1.25rem 1rem; /* Fixed identical padding for all pages */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.75rem; /* Equal spacing between logo block and nav links */
-    text-align: center;
-}
-
-.brand-logo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-.brand-name {
-    font-family: 'PressStart2P', monospace, sans-serif;
-    font-size: 1.8rem;
-    font-weight: normal;
-    color: var(--text-main);
-    margin: 0 0 0.35rem 0;
-    text-decoration: none;
-    display: inline-block;
-    line-height: 1.2;
-}
-
-.brand-tagline {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    margin: 0;
-    line-height: 1;
-}
-
-.nav-container nav {
-    width: 100%;
-}
-
-.nav-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-.nav-links a {
-    font-size: 0.95rem;
-    font-weight: 500;
-    text-decoration: none;
-    padding-bottom: 2px;
-    border-bottom: 2px solid transparent; /* Reserve 2px space so height never shifts */
-    transition: color 0.2s ease, border-color 0.2s ease;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-    color: var(--accent-color);
-    border-bottom-color: var(--accent-color);
-}
-
-        /* ==========================================
-           5. MAIN LAYOUT & CARDS
-           ========================================== */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 3rem 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 3.5rem 2rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            backdrop-filter: blur(8px);
-        }
-
-        .hero-img-placeholder {
-            width: 140px;
-            height: 140px;
-            margin: 0 auto 1.5rem auto;
-            border-radius: 50%;
-            background: #000000;
-            border: 2px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .hero-img-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero h2 {
-            font-size: clamp(2rem, 4vw, 2.75rem);
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-        }
-
-        .hero-description {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 650px;
-            margin: 0 auto 2rem auto;
-            line-height: 1.5;
-        }
-
-        /* Social Links */
-        .social-section {
-            margin-top: 2rem;
-        }
-
-        .social-title {
-            font-size: 0.9rem;
-            letter-spacing: 0.08em;
-            color: var(--text-muted);
-            margin-bottom: 1.25rem;
-        }
-
-        .social-grid {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 0.85rem;
-        }
-
-        .social-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem; /* Space between icon and text */
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid var(--border-color);
-    padding: 0.65rem 1.25rem;
-    border-radius: 12px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-}
-
-.social-btn svg {
-    width: 18px;
-    height: 18px;
-    fill: currentColor; /* Matches the text color automatically */
-}
-
-        .social-btn:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-        }
-
-        /* Support Box */
-        .support-card {
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.5) 0%, rgba(22, 27, 34, 0.6) 100%);
-            border: 1px solid rgba(255, 107, 53, 0.3);
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            backdrop-filter: blur(8px);
-        }
-
-        .support-card h2 {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .support-card p {
-            color: var(--text-muted);
-            margin-bottom: 1.25rem;
-            font-size: 0.95rem;
-        }
-
-        .btn-primary {
-            display: inline-block;
-            background: var(--accent-color);
-            color: #ffffff;
-            font-weight: 600;
-            padding: 0.8rem 1.75rem;
-            border-radius: 12px;
-            transition: background 0.2s ease, transform 0.2s ease;
-        }
-
-        .btn-primary:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        footer {
-            border-top: 1px solid var(--border-color);
-            padding: 2rem 1.5rem;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-        }
-
-        .footer-info {
-            margin-bottom: 0.5rem;
-            line-height: 1.5;
-        }
-
-        @media (max-width: 600px) {
-            .nav-container {
-                gap: 1.2rem;
-            }
-            .hero {
-                padding: 2.5rem 1.25rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <!-- Header Navigation -->
     <header>
-    <div class="nav-container">
-        <div class="brand-logo">
-            <a href="index.html" class="brand-name">AKFoxy7</a>
-            <span class="brand-tagline">The brewery with no beer</span>
+        <div class="nav-container">
+            <div class="brand-logo">
+                <a href="index.html" class="brand-name">AKFoxy7</a>
+                <span class="brand-tagline">The brewery with no beer</span>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="Our-Story.html">Our Story</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="Our-Story.html">Our Story</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+    </header>
 
     <!-- Main Content Container -->
     <div class="container">
@@ -356,11 +45,11 @@ header {
                 <p class="social-title">For up-to-date progress, check out our Instagram</p>
                 <div class="social-grid">
                     <a href="https://instagram.com/ak.foxy7" class="social-btn" target="_blank" rel="noopener">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-    </svg>
-    <span>Instagram</span>
-</a>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                        <span>Instagram</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -383,8 +72,8 @@ header {
             <a href="mailto:luke@akfoxy7.com">luke@akfoxy7.com</a>
         </div>
         <p style="margin-top: 1rem; font-size: 0.8rem;">
-             Website by <a href="https://lunofoxdigital.com" target="_blank">LunoFox Digital</a>
-            </p>
+            Website by <a href="https://lunofoxdigital.com" target="_blank">LunoFox Digital</a>
+        </p>
         <p>&copy; 2026 AKFoxy7. All rights reserved.</p>
     </footer>
 
